@@ -19,6 +19,7 @@ values_filename = 'values'
 values_extention = '.csv'
 rdm_filename = 'Frequencies'
 rdm_extention = '.rdm'
+new_rdm_extention = '.txt' # костыль, чтобы не было двух .rdm файлов
 new_rdm_filename = 'new_rdm'
 
 value_name = 'Speed'
@@ -31,13 +32,14 @@ def main():
     """Поиск файлов c данными и обработка."""
     for root, dirs, files in os.walk(wdpath):
         for resf in files:
+            # ищем values.csv и читаем скорость
             if resf.startswith(values_filename) and resf.endswith(values_extention):
-                file_path = root + '\\' + os.path.basename(resf)
-                speed = read_speed(file_path)
+                values_path = root + '\\' + os.path.basename(resf)
+                speed = read_speed(values_path)
 
-            if resf.endswith(rdm_extention):
-                #rdm_path = root + '\\' + os.path.basename(resf)
-                rdm_path = wdpath + '\\' + rdm_filename + rdm_extention
+            # ищем Frequencies.txt   
+            if resf.startswith(rdm_filename) and resf.endswith(new_rdm_extention):
+                rdm_path = wdpath + '\\' + rdm_filename + new_rdm_extention
     write_rdm(rdm_path, speed)
 
 
