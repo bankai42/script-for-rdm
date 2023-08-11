@@ -68,7 +68,7 @@ def write_rdm(rdm_path, speed):
     lines[7028-1] = line_speed_k1_stoptime
     lines[7030-1] = line_speed_k2
 
-    with open(wdpath + new_rdm_filename+rdm_extention, 'w') as f:
+    with open(wdpath + '\\' + new_rdm_filename+rdm_extention, 'w') as f:
         f.writelines(lines)
 
 
