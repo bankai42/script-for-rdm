@@ -25,7 +25,7 @@ new_rdm_filename = 'new_rdm'
 value_name = 'Speed'
 
 k1 = 11250/7470
-k2 = 7470/7485
+k2 = 1
 
 
 def main():
